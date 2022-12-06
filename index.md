@@ -4,6 +4,7 @@
 
 A "powerful" tool provides enhanced features to Instagram web version
 
+- folked from : https://github.com/Maxhyt/InstagramPlusPlus
 - Stop stories at the end ~~, then replay when you hover through~~<br/>
 - Download stories<br/>
 - Download pictures and videos from news feed and in profiles<br/><br/>
