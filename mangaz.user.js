@@ -22,9 +22,13 @@
     'use strict';
     
     // debug
-console.log('mangaz',window.location.href);
+    console.log('mangaz',window.location.href);
     console.log(window);
+    console.dir(window);
     for(var b in window) {
-  if(window.hasOwnProperty(b)) console.log(b,window[b]);
+        if(window.hasOwnProperty(b)){
+            console.log(b,window[b]);
+        }
+    }
         
 })();
