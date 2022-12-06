@@ -9,14 +9,18 @@
 
 A "powerful" tool provides enhanced features to Instagram web version
 
-- folked from : https://github.com/Maxhyt/InstagramPlusPlus
+- forked from : https://github.com/Maxhyt/InstagramPlusPlus
 - Stop stories at the end ~~, then replay when you hover through~~<br/>
 - Download stories<br/>
 - Download pictures and videos from news feed and in profiles<br/><br/>
 
 ## [TogetterUserBan](https://tknr.github.io/greasemonkey_scripts/TogetterUserBan.user.js)
 
--forked from : https://greasyfork.org/ja/scripts/387330-togetter-user-ban
+- forked from : https://greasyfork.org/ja/scripts/387330-togetter-user-ban
+
+## [TogetterCutterAlt](https://tknr.github.io/greasemonkey_scripts/TogetterCutterAlt.user.js)
+
+- forked from : https://github.com/recyclebin5385/togecutter-alt
 
 
 
