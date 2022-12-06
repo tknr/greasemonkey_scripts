@@ -226,12 +226,12 @@ const hideElement = (selector, checkEleSel, attr, bannedList) => {
  * togetterサイトのフォローボタンを格納したボックスを返します。
  * バンボタンを設置するのに使います。
  */
-const followBox = () => document.querySelector("#follow_box");
+const followBox = () => document.querySelector("span.links");
 
 /**
  * togetterサイトのプロフィールボックスを返します。
  */
-const profileBox = () => document.querySelector("div.profile_box").parentElement;
+const profileBox = () => document.querySelector(".user_show_header_box");
 
 /**
  * バンボタンを設置します。
@@ -239,9 +239,12 @@ const profileBox = () => document.querySelector("div.profile_box").parentElement
 const addBanButton = () => {
     console.log('addBanButton');
     const profile = profileBox();
+    console.dir(profile);
     // @ts-ignore
-    const userId = profile.querySelector("a.status_name").innerText.replace("@", "");
+    const userId = profile.querySelector("span.status_name").innerText.replace("@", "");
+    console.log(userId);
     const icon = profile.querySelector("img").getAttribute("src");
+     console.log(icon);
     const user = User(userId, icon);
     followBox().appendChild(ele.button(user));
 };
