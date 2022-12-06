@@ -18,17 +18,35 @@
 // @grant        GM_registerMenuCommand
 // ==/UserScript==
 
+
+
 (function() {
     'use strict';
-    
     // debug
     console.log('mangaz',window.location.href);
-    console.log(window);
     console.dir(window);
-    for(var b in window) {
-        if(window.hasOwnProperty(b)){
-            console.log(b,window[b]);
-        }
-    }
-        
+
+addJS_Node (null, null, interceptAjax());
+
 })();
+
+function interceptAjax () {
+    $(document).ajaxSuccess (
+        function (event, requestData)
+        {
+            console.log (requestData.responseText);
+        }
+    );
+}
+
+function addJS_Node (text, s_URL, funcToRun) {
+    var D                                   = document;
+    var scriptNode                          = D.createElement ('script');
+    scriptNode.type                         = "text/javascript";
+    if (text)       scriptNode.textContent  = text;
+    if (s_URL)      scriptNode.src          = s_URL;
+    if (funcToRun)  scriptNode.textContent  = '(' + funcToRun.toString() + ')()';
+
+    var targ    = D.getElementsByTagName('head')[0] || D.body || D.documentElement;
+    targ.appendChild (scriptNode);
+}
