@@ -9,8 +9,6 @@ A "powerful" tool provides enhanced features to Instagram web version
 - Download stories<br/>
 - Download pictures and videos from news feed and in profiles<br/><br/>
 
-## [mangaz](https://tknr.github.io/greasemonkey_scripts/mangaz.user.js)
-
 
 # Requirements
 - [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) (Chrome)
