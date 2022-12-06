@@ -20,7 +20,11 @@
 
 (function() {
     'use strict';
-console.log();
-    console.log(w);
-    // Your code here...
+    
+    // debug
+console.log('mangaz',window.location.href);
+    console.log(window);
+    for(var b in window) {
+  if(window.hasOwnProperty(b)) console.log(b,window[b]);
+        
 })();
