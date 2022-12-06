@@ -4,11 +4,11 @@
 // @version      2.4.2
 // @description  Instagram++ Help Tools
 // @author       tknr
-// @homepage     https://tknr.github.io/InstagramPlusPlus/
-// @homepageURL  https://tknr.github.io/InstagramPlusPlus/
+// @homepage     https://tknr.github.io/greasemonkey_scripts/
+// @homepageURL  https://tknr.github.io/greasemonkey_scripts/
 // @match        https://www.instagram.com/*
-// @updateURL    https://tknr.github.io/InstagramPlusPlus/InstagramPlusPlus.meta.js
-// @downloadURL  https://tknr.github.io/InstagramPlusPlus/InstagramPlusPlus.user.js
+// @updateURL    https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus.meta.js
+// @downloadURL  https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus.user.js
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // @grant        GM_setValue
 // @grant        GM_getValue
