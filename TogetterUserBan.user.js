@@ -76,7 +76,7 @@ const ele = {};
  */
 ele.li = user => {
     const li = html(
-    `<li class="clearfix" style="display: flex;">
+        `<li class="clearfix" style="display: flex;">
         <a href="/id/${user.userId}" title="@${user.userId}" style="flex: auto;">
             <p class="">@${user.userId}</p>
             <img class="icon_24 lazy lazy-hidden loaded" src="${user.icon}">
@@ -102,7 +102,7 @@ ele.div = users => {
     /** @type {HTMLElement} */
     // @ts-ignore
     const div = html(
-    `<div class="side_box side_line_box list_recommend expandable scrollable">
+        `<div class="side_box side_line_box list_recommend expandable scrollable">
         <h3 class="title">バンリスト</h3>
         <div class="main_box closed">
             <ul>
@@ -217,7 +217,7 @@ const hideElement = (selector, checkEleSel, attr, bannedList) => {
                 .filter(p => bannedList.includes(p))
                 .forEach(p => {
                     e.style.display = "none";
-                    console.log(`hideElement: 要素を消しました。(${p})`);    
+                    console.log(`hideElement: 要素を消しました。(${p})`);
                 });
         });
 };
@@ -244,7 +244,7 @@ const addBanButton = () => {
     const userId = profile.querySelector("span.status_name").innerText.replace("@", "");
     console.log(userId);
     const icon = profile.querySelector("img").getAttribute("src");
-     console.log(icon);
+    console.log(icon);
     const user = User(userId, icon);
     followBox().appendChild(ele.button(user));
 };
@@ -271,7 +271,7 @@ const iconList = userList => {
     return userList
         .map(u => u.icon)
         .filter(i => i !== defaultIcon);
-        debugger
+    debugger
 };
 
 /**
@@ -374,7 +374,7 @@ const observe = (callback, selector, options = { childList: true }) => {
         observe(() => hideComment(bannedList), "#comment_box");
         return false;
     };
-    
+
     observe(() => hideMatome(bannedList), ".simple_list");
-    
+
 })();

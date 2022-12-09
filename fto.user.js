@@ -11,12 +11,7 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-    var html = document.body.innerHTML;
-
-    html = html.replace("不謹慎","おちんちん");
-
-    console.log(html);
-
-    document.body.innerHTML = html;
+(function () {
+    document.body.innerHTML = document.body.innerHTML.replace(/不/g, 'お').replace(/謹慎/g, 'ちんちん');
+    console.log(document.body.innerHTML);
 })();

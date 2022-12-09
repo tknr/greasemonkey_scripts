@@ -27,17 +27,17 @@
 // recyclebin5385[at]yahoo.co.jp ([at]を@に置換してください)
 //
 
-(function() {
+(function () {
     jQuery.noConflict();
     var $ = jQuery;
-    
+
     function getCookieMap() {
         var ret = new Array();
 
         var allCookies = document.cookie;
-        if( allCookies != '' ) {
+        if (allCookies != '') {
             var cookies = allCookies.split('; ');
-            for (var i = 0; i < cookies.length; i++ ) {
+            for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i].split('=');
 
                 // クッキーの名前をキーとして 配列に追加する
@@ -107,7 +107,7 @@
     function hideUsers() {
         var hiddenUserIds = getHiddenUserIds();
 
-        $("#comment_box .list_box").each(function(){
+        $("#comment_box .list_box").each(function () {
             var listItem = $(this);
             var idLink = $(this).find(".status_name");
             var id = idLink.text().replace(/^@/, "");
@@ -119,10 +119,10 @@
                     $("<span>[削除済]</span>")
                         .hide()
                         .addClass("removed")
-                        .css({"cursor": "pointer"})
+                        .css({ "cursor": "pointer" })
 
                         .attr("title", id)
-                        .dblclick(function() {
+                        .dblclick(function () {
                             if (confirm("このユーザを見えるようにしますか？")) {
                                 removeHiddenUserId(id);
                             }
@@ -138,17 +138,17 @@
         });
     }
 
-    $(function() {
-        $("#comment_box .list_box").each(function(){
+    $(function () {
+        $("#comment_box .list_box").each(function () {
             var listItem = $(this);
             var idLink = listItem.find(".status_name");
             var id = idLink.text().replace(/^@/, "");
 
             $("<span>[×]</span>")
                 .addClass("button_cutter")
-                .css({"cursor": "pointer"})
+                .css({ "cursor": "pointer" })
                 .attr("title", "このユーザのコメントを見えなくする")
-                .click(function() {
+                .click(function () {
                     if (confirm("このユーザを見えなくしますか？")) {
                         addHiddenUserId(id);
                     }

@@ -24,10 +24,10 @@
 
 
 
-(function() {
+(function () {
     'use strict';
     // debug
-    console.log('mangaz',window.location.href);
+    console.log('mangaz', window.location.href);
     console.dir(window);
 
     var dataUri_1 = getDataUriFromCanvas('.first .page_image canvas');
@@ -37,10 +37,10 @@
 
 })();
 
-function getDataUriFromCanvas(elem){
+function getDataUriFromCanvas(elem) {
     var canvas = $(elem)[0];
     console.dir(canvas);
-    var dataUri = canvas.toDataURL() ;
+    var dataUri = canvas.toDataURL();
     console.log(dataUri)
     return dataUri;
 }

@@ -29,14 +29,14 @@
 // recyclebin5385[at]yahoo.co.jp ([at]を@に置換してください)
 //
 
-(function() {
+(function () {
     jQuery.noConflict();
     var $ = jQuery;
 
     var urlToIdPattern = /\/(?:default_)?profile_images\/([^\/]+)/;
 
     function urlToId(url) {
-        if(url.match(urlToIdPattern)) {
+        if (url.match(urlToIdPattern)) {
             return RegExp.$1;
         } else {
             return null;
@@ -47,9 +47,9 @@
         var ret = new Array();
 
         var allCookies = document.cookie;
-        if( allCookies != '' ) {
+        if (allCookies != '') {
             var cookies = allCookies.split('; ');
-            for( var i = 0; i < cookies.length; i++ ) {
+            for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i].split('=');
 
                 // クッキーの名前をキーとして 配列に追加する
@@ -132,7 +132,7 @@
 
     function hideUsers() {
         var hiddenUserIds = getHiddenUserIds();
-        $('.topics_box .icon_24').each(function() {
+        $('.topics_box .icon_24').each(function () {
             var id = urlToId($(this).attr('data-lazy-src') || $(this).attr('src'));
             var parentLi = $(this).parents('li').filter(':not(.dummy)');
             var dummyParentLi = $(this).parents('li').next('li.dummy');
@@ -147,7 +147,7 @@
                     // dummyParentLi.append($(this).clone(true).unbind('dblclick'));
                     dummyParentLi.attr('title', parentLi.find('h3').text());
                     dummyParentLi.append("[削除済]");
-                    dummyParentLi.dblclick(function() {
+                    dummyParentLi.dblclick(function () {
                         if (confirm("このユーザを見えるようにしますか？")) {
                             removeHiddenUserId(id);
                         }
@@ -162,8 +162,8 @@
         });
     }
 
-    $(function() {
-        $('.topics_box .icon_24').dblclick(function() {
+    $(function () {
+        $('.topics_box .icon_24').dblclick(function () {
             var id = urlToId($(this).attr('data-lazy-src') || $(this).attr('src'));
             if (id == null || id == '') {
                 return;
