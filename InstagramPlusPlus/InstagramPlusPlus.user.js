@@ -4,11 +4,11 @@
 // @version      2.4.3
 // @description  Instagram++ Help Tools
 // @author       tknr
-// @homepage     https://tknr.github.io/greasemonkey_scripts/
-// @homepageURL  https://tknr.github.io/greasemonkey_scripts/
+// @homepage     https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus/
+// @homepageURL  https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus/
 // @match        https://www.instagram.com/*
-// @updateURL    https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus.meta.js
-// @downloadURL  https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus.user.js
+// @updateURL    https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus/InstagramPlusPlus.meta.js
+// @downloadURL  https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus/InstagramPlusPlus.user.js
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -200,7 +200,7 @@
                     }
 
                     if (feedMenu.innerHTML.indexOf("Download") === -1)
-                        feedMenu.innerHTML += "<span class=\"_15y0l\"><a class=\"coreDownloadSaveButton\" href=\"" + src + "\" download target=\"_blank\"><button class=\"oF4XW dCJp8\"><span style=\"background-image: url(https://tknr.github.io/greasemonkey_scripts/images/download.png); width: 24px; height: 24px;\"></span></button></a></span>";
+                        feedMenu.innerHTML += "<span class=\"_15y0l\"><a class=\"coreDownloadSaveButton\" href=\"" + src + "\" download target=\"_blank\"><button class=\"oF4XW dCJp8\"><span style=\"background-image: url(https://tknr.github.io/greasemonkey_scripts/InstagramPlusPlus/images/download.png); width: 24px; height: 24px;\"></span></button></a></span>";
                 }
                 dlButton();
             }, 500);

@@ -2,6 +2,9 @@
 // @name        togecutter-alt
 // @namespace   tknr.togetter.cutter.alt
 // @description togetterの特定ユーザのコメントを見えなくする
+// @author       tknr
+// @homepage     https://tknr.github.io/greasemonkey_scripts/togetter/
+// @homepageURL  https://tknr.github.io/greasemonkey_scripts/togetter/
 // @include     https://togetter.com/li/*
 // @include     http://togetter.com/li/*
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js

@@ -11,7 +11,7 @@
 // @updateURL    https://tknr.github.io/greasemonkey_scripts/mangaz.meta.js
 // @downloadURL  https://tknr.github.io/greasemonkey_scripts/mangaz.user.js
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
-// @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @require     https://tknr.github.io/greasemonkey_scripts/lib/waitForKeyElements.js
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant       GM_addStyle

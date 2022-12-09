@@ -1,6 +1,9 @@
 // ==UserScript==
 // @name         Togetter User Ban
 // @namespace    tknr.togetter.user.ban
+// @author       tknr
+// @homepage     https://tknr.github.io/greasemonkey_scripts/togetter/
+// @homepageURL  https://tknr.github.io/greasemonkey_scripts/togetter/
 // @version      0.0.1
 // @description  try to take over the world!
 // @author       tknr

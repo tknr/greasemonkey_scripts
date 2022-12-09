@@ -2,6 +2,9 @@
 // @name        togetter-hide-user
 // @namespace   tknr.togetter.hide.user
 // @description togetterの特定ユーザを見えなくする
+// @author       tknr
+// @homepage     https://tknr.github.io/greasemonkey_scripts/togetter/
+// @homepageURL  https://tknr.github.io/greasemonkey_scripts/togetter/
 // @include     http://togetter.com/*
 // @include     https://togetter.com/*
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
