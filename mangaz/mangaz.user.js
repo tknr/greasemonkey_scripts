@@ -84,7 +84,7 @@ function checkValueExists(obj, value) {
  * @param {Object} obj 
  */
 function renderDL(obj) {
-    let innerHtml = '';
+    let innerHtml = '<a href="'+window.location.href.replace(/\/i:(\d+)/, "/i:0")+'">top</a><br />';
     Object.keys(obj).forEach(function (key) {
         innerHtml += '<a href="' + obj[key] + '" download="' + key + '.jpg">' + key + '.jpg</a>&nbsp;';
     });
