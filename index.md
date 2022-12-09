@@ -27,3 +27,5 @@ A "powerful" tool provides enhanced features to Instagram web version
 - forked from : https://github.com/recyclebin5385/togetter-hide-user
 
 
+## [mangaz](https://tknr.github.io/greasemonkey_scripts/mangaz.user.js)
+- under testing
