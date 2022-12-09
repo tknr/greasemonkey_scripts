@@ -12,6 +12,6 @@
 // ==/UserScript==
 
 (function () {
-    document.body.innerHTML = document.body.innerHTML.replace(/不/g, 'お').replace(/謹慎/g, 'ちんちん');
+    document.body.innerHTML = document.body.innerHTML.replace(/不謹慎/g, 'おちんちん').replace(/謹慎/g, 'ちんちん');
     console.log(document.body.innerHTML);
 })();
