@@ -35,6 +35,8 @@
 
     console.dir($('.page_unit .image'));
 
+    console.dir(JCOMI);
+
 })();
 
 function getDataUriFromCanvas(elem) {
