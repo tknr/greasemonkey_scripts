@@ -11,7 +11,7 @@
 // @updateURL    https://tknr.github.io/greasemonkey_scripts/mangaz.meta.js
 // @downloadURL  https://tknr.github.io/greasemonkey_scripts/mangaz.user.js
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
-// @require     https://tknr.github.io/greasemonkey_scripts/lib/waitForKeyElements.js
+// @require     https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant       GM_addStyle
@@ -22,27 +22,84 @@
 // @run-at      document-idle
 // ==/UserScript==
 
+/**
+ * @var Object
+ */
+var src_obj = {};
+
+(function (drawImage) {
+    CanvasRenderingContext2D.prototype.drawImage = function () {
+        console.log(arguments);
+        let src = arguments[0].src;
+        if (!checkValueExists(src_obj, src)) {
+            let page_number = sprintf('%04d_%02d', getPageNumber(), Object.values(src_obj).length + 1);
+            console.log(page_number);
+            src_obj[page_number] = src;
+            renderDL(src_obj);
+        }
+        drawImage.apply(this, arguments);
+    };
+})(CanvasRenderingContext2D.prototype.drawImage);
 
 
 (function () {
     'use strict';
     // debug
-    console.log('mangaz', window.location.href);
-    console.dir(window);
-
-    var dataUri_1 = getDataUriFromCanvas('.first .page_image canvas');
-    var dataUri_2 = getDataUriFromCanvas('.second .page_image canvas');
-
-    console.dir($('.page_unit .image'));
-
-    console.dir(JCOMI);
 
 })();
 
-function getDataUriFromCanvas(elem) {
-    var canvas = $(elem)[0];
-    console.dir(canvas);
-    var dataUri = canvas.toDataURL();
-    console.log(dataUri)
-    return dataUri;
+/**
+ * get page number from current url
+ * @returns int
+ */
+function getPageNumber() {
+    // https://vw.mangaz.com/virgo/view/190872/i:0#
+    let location = document.location;
+    console.log('location', location);
+    let href = location.href;
+    console.log('href', href);
+    let href_array = href.split('/');
+    console.log(href_array);
+    let href_last = href_array.slice(-1)[0];
+    let last_array = href_last.split(':');
+    let last_last = last_array.slice(-1)[0];
+    let page_number_str = last_last.replace('#', '');
+    let page_number = parseInt(page_number_str);
+    console.log(page_number);
+    return page_number;
+}
+
+/**
+ * 
+ * @param {Object} obj 
+ * @param {*} value 
+ * @returns boolean
+ */
+function checkValueExists(obj, value) {
+    return Object.values(obj).indexOf(value) > -1
+}
+
+/**
+ * 
+ * @param {Object} obj 
+ */
+function renderDL(obj) {
+    let innerHtml = '';
+    Object.keys(obj).forEach(function (key) {
+        innerHtml += '<a href="' + obj[key] + '" download="' + key + '.jpg">' + key + '.jpg</a>&nbsp;';
+    });
+
+    let elem = document.getElementById('mtzdl');
+    if (elem) {
+        elem.innerHTML = innerHtml;
+        return;
+    }
+
+    elem = document.createElement('div');
+    elem.id = 'mtzdl';
+    elem.style.width = '80%';
+    elem.style.wordBreak = 'break-all';
+    elem.innerHTML = innerHtml;
+    let parent = document.getElementById("book");
+    parent.appendChild(elem);
 }
