@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram++
 // @namespace    tknr.instagram.plusplus
-// @version      2.4.2
+// @version      2.4.3
 // @description  Instagram++ Help Tools
 // @author       tknr
 // @homepage     https://tknr.github.io/greasemonkey_scripts/
