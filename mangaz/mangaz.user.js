@@ -117,6 +117,7 @@ function renderDL(obj) {
 
     let innerHtml = '<div id="mtzdl_page_top"><a href="' + document.location.href.replace(/\/i:(\d+)/, "/i:0") + '">top</a></div>';
     innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + ' / ' + obj_length + (is_last_page ? ' / last page' : '') + '</div>';
+    innerHtml += '<div id="mtzdl_dl"><button id="blob" class="btn btn-primary">click to download</button></div>'
 
     let elem = document.getElementById('mtzdl');
     if (elem) {
@@ -132,23 +133,28 @@ function renderDL(obj) {
     let parent = document.getElementById("book");
     parent.appendChild(elem);
 
-    if (!is_last_page) {
-        return;
-    }
+    jQuery("#blob").on("click", function () {
 
-    const zip = new JSZip();
-    Object.keys(obj).forEach(function (key) {
-        let uri = obj[key];
-        let idx = uri.indexOf('base64,') + 'base64,'.length;
-        let content = uri.substring(idx);
-        zip.file(key + '.jpg', content, { base64: true });
-    });
-
-    let zip_filename = getContentId() + '.zip';
-    console.log(zip_filename);
-
-    zip.generateAsync({ type: "blob" })
-        .then(function (blob) {
-            saveAs(blob, zip_filename);
+        const zip = new JSZip();
+        Object.keys(obj).forEach(function (key) {
+            let uri = obj[key];
+            let idx = uri.indexOf('base64,') + 'base64,'.length;
+            let content = uri.substring(idx);
+            let jpg_filename = key + '.jpg';
+            console.log(jpg_filename);
+            zip.file(jpg_filename, content, { base64: true });
         });
+
+        let zip_filename = getContentId() + '.zip';
+        console.log(zip_filename);
+
+        zip.generateAsync({ type: "blob" })
+            .then(function (blob) {
+                saveAs(blob, zip_filename);
+                console.log('completed.');
+            }, function (err) {
+                console.error(err);
+            });
+        return false;
+    });
 }
