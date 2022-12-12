@@ -12,7 +12,7 @@
 // @downloadURL  https://tknr.github.io/greasemonkey_scripts/mangaz.user.js
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js
-// @require     https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js
+// @require     https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js
 // @grant        GM_setValue
 // @grant        GM_getValue
