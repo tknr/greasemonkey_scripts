@@ -111,11 +111,12 @@ function renderDL(obj) {
     let current_number = parseInt($('.current-number').text());
     let total_number = parseInt($('.total-number').text());
     let is_last_page = (current_number == total_number);
+    let obj_length = Object.values(obj).length
 
-    console.log({ 'current_number': current_number, 'total_number': total_number, 'is_last_page': is_last_page });
+    console.log({ 'current_number': current_number, 'total_number': total_number, 'is_last_page': is_last_page, 'obj_length': obj_length });
 
     let innerHtml = '<div id="mtzdl_page_top"><a href="' + document.location.href.replace(/\/i:(\d+)/, "/i:0") + '">top</a></div>';
-    innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + (is_last_page ? ' / last page' : '') + '</div>';
+    innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + ' / ' + obj_length + (is_last_page ? ' / last page' : '') + '</div>';
 
     let elem = document.getElementById('mtzdl');
     if (elem) {
