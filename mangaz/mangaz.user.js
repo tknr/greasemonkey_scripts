@@ -163,7 +163,6 @@ function renderDL(obj) {
             .then(function (blob) {
                 saveAs(blob, zip_filename);
                 console.log('completed.');
-                alert('completed. ' + zip_filename);
             }, function (err) {
                 console.error(err);
             });
