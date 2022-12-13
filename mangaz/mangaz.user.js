@@ -84,7 +84,7 @@ function getContentId() {
     console.log({ 'href': href });
     let href_array = href.split('/');
     console.log({ 'href_array': href_array });
-    let content_id = href_array[2];
+    let content_id = href_array[5];
     console.log({ 'content_id': content_id });
     return content_id;
 }
@@ -111,19 +111,19 @@ function renderDL(obj) {
     let current_number = parseInt($('.current-number').text());
     let total_number = parseInt($('.total-number').text());
     let is_last_page = (current_number == total_number);
-    let obj_length = Object.values(obj).length
+    let obj_length = Object.values(obj).length;
 
     console.log({ 'current_number': current_number, 'total_number': total_number, 'is_last_page': is_last_page, 'obj_length': obj_length });
 
-    let innerHtml = '<div id="mtzdl_page_top"><a href="' + document.location.href.replace(/\/i:(\d+)/, "/i:0") + '">top</a></div>';
-    innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + ' / ' + obj_length + (is_last_page ? ' / last page' : '') + '</div>';
-    innerHtml += '<div id="mtzdl_dl"><button id="blob" class="btn btn-primary">click to download</button></div>'
+    let innerHtml = '';
+    innerHtml += '<div id="mtzdl_page_top"><button id="mtzdl_goto_top">go to top</button>&nbsp;<button id="mtzdl_autonext">auto next</button></div>';
+    innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + ' | images: ' + obj_length + (is_last_page ? ' / last page' : '') + '</div>';
+    innerHtml += '<div id="mtzdl_dl"><button id="mtzdl_blob" class="btn btn-primary">click to download</button></div>';
 
     let elem = document.getElementById('mtzdl');
     if (elem) {
         elem.innerHTML = innerHtml;
     } else {
-
         elem = document.createElement('div');
         elem.id = 'mtzdl';
         elem.style.width = '80%';
@@ -133,7 +133,7 @@ function renderDL(obj) {
         parent.appendChild(elem);
     }
 
-    jQuery("#blob").on("click", function () {
+    $("#mtzdl_blob").on("click", function () {
 
         const zip = new JSZip();
         Object.keys(obj).forEach(function (key) {
@@ -157,4 +157,31 @@ function renderDL(obj) {
             });
         return false;
     });
+
+    $("#mtzdl_goto_top").on("click", function () {
+        let top_url = document.location.href.replace(/\/i:(\d+)/, "/i:0");
+        console.log({ 'top_url': top_url });
+        location.href = top_url;
+    });
+
+    $("#mtzdl_autonext").on("click", function () {
+        let cn = current_number;
+        let tn = total_number;
+
+        while (cn < tn) {
+            $('.next').trigger('click');
+            wait(1000)
+            cn++;
+        }
+    });
+}
+
+/**
+ * 
+ * @param {number} msec 
+ * @returns Promise
+ */
+function wait(msec) {
+    console.log('wait()');
+    return new Promise(resolve => setTimeout(resolve, msec));
 }
