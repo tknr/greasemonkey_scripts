@@ -129,10 +129,9 @@ function renderDL(obj) {
     let innerHtml = '';
     innerHtml += '<div id="mtzdl_page_top">';
     innerHtml += '<button id="mtzdl_goto_top">go to top</button>';
-    //innerHtml += '&nbsp;<button id="mtzdl_autonext">auto next</button>';
     innerHtml += '</div>';
     innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + ' | images: ' + obj_length + (is_last_page ? ' / last page' : '') + '</div>';
-    innerHtml += '<div id="mtzdl_dl"><button id="mtzdl_blob" class="btn btn-primary">download</button></div>';
+    innerHtml += '<div id="mtzdl_dl"><button id="mtzdl_blob" class="btn btn-primary">download</button>&nbsp;<span id="mtzdl_percent"></span></div>';
 
     let elem = document.getElementById('mtzdl');
     if (elem) {
@@ -162,10 +161,14 @@ function renderDL(obj) {
         let zip_filename = getTitle() + ' ' + getContentId() + '.zip';
         console.log(zip_filename);
 
-        zip.generateAsync({ type: "blob" })
+        zip.generateAsync({ type: "blob" }, function updateCallback(metadata) {
+            let msg = zip_filename + ' : ' + metadata.percent.toFixed(2) + " %";
+            $("#mtzdl_percent").text(msg);
+        })
             .then(function (blob) {
                 saveAs(blob, zip_filename);
-                console.log('completed.');
+                console.log('completed.' + zip_filename);
+                $("#mtzdl_percent").text('completed. ' + zip_filename);
                 alert('completed. ' + zip_filename);
             }, function (err) {
                 console.error(err);
