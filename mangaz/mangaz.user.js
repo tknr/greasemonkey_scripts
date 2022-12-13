@@ -127,7 +127,10 @@ function renderDL(obj) {
     console.log({ 'current_number': current_number, 'total_number': total_number, 'is_last_page': is_last_page, 'obj_length': obj_length });
 
     let innerHtml = '';
-    innerHtml += '<div id="mtzdl_page_top"><button id="mtzdl_goto_top">go to top</button>&nbsp;<button id="mtzdl_autonext">auto next</button></div>';
+    innerHtml += '<div id="mtzdl_page_top">';
+    innerHtml += '<button id="mtzdl_goto_top">go to top</button>';
+    //innerHtml += '&nbsp;<button id="mtzdl_autonext">auto next</button>';
+    innerHtml += '</div>';
     innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + ' | images: ' + obj_length + (is_last_page ? ' / last page' : '') + '</div>';
     innerHtml += '<div id="mtzdl_dl"><button id="mtzdl_blob" class="btn btn-primary">download</button></div>';
 
