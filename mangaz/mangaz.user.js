@@ -91,6 +91,17 @@ function getContentId() {
 
 /**
  * 
+ * @returns string
+ */
+function getTitle() {
+    console.log('getTitle()');
+    let title = $('#toolbar > h1').text();
+    console.log({ 'title': title });
+    return title;
+}
+
+/**
+ * 
  * @param {Object} obj 
  * @param {*} value 
  * @returns boolean
@@ -118,7 +129,7 @@ function renderDL(obj) {
     let innerHtml = '';
     innerHtml += '<div id="mtzdl_page_top"><button id="mtzdl_goto_top">go to top</button>&nbsp;<button id="mtzdl_autonext">auto next</button></div>';
     innerHtml += '<div id="mtzdl_page">' + current_number + ' / ' + total_number + ' | images: ' + obj_length + (is_last_page ? ' / last page' : '') + '</div>';
-    innerHtml += '<div id="mtzdl_dl"><button id="mtzdl_blob" class="btn btn-primary">click to download</button></div>';
+    innerHtml += '<div id="mtzdl_dl"><button id="mtzdl_blob" class="btn btn-primary">download</button></div>';
 
     let elem = document.getElementById('mtzdl');
     if (elem) {
@@ -145,13 +156,14 @@ function renderDL(obj) {
             zip.file(jpg_filename, content, { base64: true });
         });
 
-        let zip_filename = getContentId() + '.zip';
+        let zip_filename = getTitle() + ' ' + getContentId() + '.zip';
         console.log(zip_filename);
 
         zip.generateAsync({ type: "blob" })
             .then(function (blob) {
                 saveAs(blob, zip_filename);
                 console.log('completed.');
+                alert('completed. ' + zip_filename);
             }, function (err) {
                 console.error(err);
             });
