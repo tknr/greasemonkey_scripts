@@ -122,16 +122,16 @@ function renderDL(obj) {
     let elem = document.getElementById('mtzdl');
     if (elem) {
         elem.innerHTML = innerHtml;
-        return;
-    }
+    } else {
 
-    elem = document.createElement('div');
-    elem.id = 'mtzdl';
-    elem.style.width = '80%';
-    elem.style.wordBreak = 'break-all';
-    elem.innerHTML = innerHtml;
-    let parent = document.getElementById("book");
-    parent.appendChild(elem);
+        elem = document.createElement('div');
+        elem.id = 'mtzdl';
+        elem.style.width = '80%';
+        elem.style.wordBreak = 'break-all';
+        elem.innerHTML = innerHtml;
+        let parent = document.getElementById("book");
+        parent.appendChild(elem);
+    }
 
     jQuery("#blob").on("click", function () {
 
