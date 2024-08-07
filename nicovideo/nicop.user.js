@@ -14,7 +14,8 @@
 (function() {
     'use strict';
 
-    // Your code here...
-    // <meta name="server-response" content=
-    // &quot;isPremium&quot;:false,
+    let element = document.querySelector("meta[name='server-response']");
+    let content = element.getAttribute("content");
+    let newContent = content.replaceAll("&quot;isPremium&quot;:false,", "&quot;isPremium&quot;:true,")
+    element.setAttribute("content", newContent);
 })();
