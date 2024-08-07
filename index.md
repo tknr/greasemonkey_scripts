@@ -12,3 +12,5 @@
 - [不謹慎toおちんちん](https://tknr.github.io/greasemonkey_scripts/fto/)
 
 - [mangaz](https://tknr.github.io/greasemonkey_scripts/mangaz/)
+
+- [nicop](https://tknr.github.io/greasemonkey_scripts/nicovideo/)
