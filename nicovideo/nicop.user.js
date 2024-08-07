@@ -16,6 +16,7 @@
 
     let element = document.querySelector("meta[name='server-response']");
     let content = element.getAttribute("content");
-    let newContent = content.replaceAll("&quot;isPremium&quot;:false,", "&quot;isPremium&quot;:true,")
+    let newContent = content.replaceAll("&quot;isPremium&quot;:false,", "&quot;isPremium&quot;:true,");
+    console.log(newContent);
     element.setAttribute("content", newContent);
 })();
