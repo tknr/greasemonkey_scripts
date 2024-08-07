@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name         New Userscript
-// @namespace    http://tampermonkey.net/
+// @name         nicop
+// @namespace    tknr.nicop
 // @version      2024-08-07
 // @description  try to take over the world!
-// @author       You
+// @author       tknr
+// @homepage     https://tknr.github.io/greasemonkey_scripts/nicovideo/
+// @homepageURL  https://tknr.github.io/greasemonkey_scripts/nicovideo/
 // @match        https://www.nicovideo.jp/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=nicovideo.jp
 // @grant        none
